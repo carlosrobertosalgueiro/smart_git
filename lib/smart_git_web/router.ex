@@ -10,15 +10,17 @@ defmodule SmartGitWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  # coveralls-ignore-start
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", SmartGitWeb do
-    pipe_through :browser
+  # scope "/", SmartGitWeb do
+  #   pipe_through :browser
 
-    get "/", PageController, :index
-  end
+  #   get "/", PageController, :index
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", SmartGitWeb do
@@ -41,6 +43,9 @@ defmodule SmartGitWeb.Router do
       live_dashboard "/dashboard", metrics: SmartGitWeb.Telemetry
     end
   end
+
+  # coveralls-ignore-stop
+
 
   # Enables the Swoosh mailbox preview in development.
   #
